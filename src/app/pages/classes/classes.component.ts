@@ -13,6 +13,10 @@ export class ClassesComponent implements OnInit {
   constructor(private classesService: ClassesService) {}
 
   ngOnInit(): void {
+    this.getClassList();
+  }
+
+  getClassList() {
     this.classesService.getList().subscribe((data) => {
       this.classes = data;
     });

@@ -5,6 +5,7 @@ import { ClassDetailModel } from "src/app/models/class-detail.model";
 import { environment } from "src/environments/environment";
 import { faLock } from "@fortawesome/free-solid-svg-icons";
 import { faStar } from "@fortawesome/free-regular-svg-icons";
+import { ClassDetailService } from "src/app/services/class-detail.service";
 
 @Component({
   selector: "app-class-detail",
@@ -15,17 +16,23 @@ export class ClassDetailComponent implements OnInit {
   class = null;
   faLock = faLock;
   faStar = faStar;
+  id: string;
 
   constructor(
     private http: HttpClient,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private classesDetailService: ClassDetailService
   ) {}
 
   ngOnInit(): void {
+    this.getDetails(this.id);
+  }
+
+  getDetails(id: string) {
     this.activatedRoute.params.subscribe((param) => {
-      const id = param.id;
-      return this.http
-        .get<ClassDetailModel[]>(`${environment.ApiBaseUrl}?id=${id}`)
+      id = param.id;
+      this.classesDetailService
+        .getDetails(id)
         .subscribe((data) => (this.class = data));
     });
   }

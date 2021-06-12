@@ -1,6 +1,6 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { ActivatedRoute } from "@angular/router";
+
 import { environment } from "src/environments/environment";
 import { ClassDetailModel } from "../models/class-detail.model";
 
@@ -9,9 +9,18 @@ import { ClassDetailModel } from "../models/class-detail.model";
 })
 export class ClassDetailService {
   private apiUrl: string;
-  class: any[] = [];
 
-  constructor() {}
+  constructor(private http: HttpClient) {}
 
-  ngOnInit(): void {}
+  // getDetails() {
+  //      return this.http
+  //       .get<ClassDetailModel[]>(`${environment.ApiBaseUrl}?id=${id}`)
+  //       .subscribe((data) => (this.class = data));
+  //   }
+
+  getDetails(id: string) {
+    return this.http.get<ClassDetailModel[]>(
+      `${environment.ApiBaseUrl}?id=${id}`
+    );
+  }
 }
