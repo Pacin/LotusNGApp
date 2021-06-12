@@ -1,18 +1,17 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
+import { ActivatedRoute } from "@angular/router";
 import { environment } from "src/environments/environment";
+import { ClassDetailModel } from "../models/class-detail.model";
 
 @Injectable({
   providedIn: "root",
 })
 export class ClassDetailService {
   private apiUrl: string;
+  class: any[] = [];
 
-  constructor(private http: HttpClient) {
-    //this.apiUrl = environment.ApiBaseUrl; The part where the api is defined and the service operations are performed.
-  }
+  constructor() {}
 
-  // getList() {
-  //   return this.http.get<any[]>(this.apiUrl);
-  // }
+  ngOnInit(): void {}
 }

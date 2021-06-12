@@ -1,18 +1,22 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { environment } from "src/environments/environment";
+import { ClassModel } from "../models/class.model";
 
 @Injectable({
   providedIn: "root",
 })
 export class ClassesService {
   private apiUrl: string;
+  classes: any[] = [];
 
   constructor(private http: HttpClient) {
-    //this.apiUrl = environment.ApiBaseUrl; The part where the api is defined and the service operations are performed.
+    this.apiUrl = environment.ApiBaseUrl;
   }
 
-  // getList() {
-  //   return this.http.get<any[]>(this.apiUrl);
-  // }
+  getList() {
+    return this.http
+      .get<ClassModel[]>(this.apiUrl)
+      .subscribe((data) => (this.classes = data));
+  }
 }

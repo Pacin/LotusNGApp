@@ -1,3 +1,31 @@
-<p>classes works!</p>
-
-<app-modal></app-modal>
+<div class="container">
+  <div class="class-container">
+    <a
+      [routerLink]="['/class-detail/', class.id]"
+      *ngFor="let class of classes"
+      class="class"
+    >
+      <div class="class-image">
+        <div class="class-overlay"></div>
+        <img src="{{ class.image[0].url }}" alt="" />
+      </div>
+      <div class="class-title">
+        <h2>
+          {{ class.name }}
+        </h2>
+      </div>
+      <div class="class-level">
+        <span>
+          {{ class.level | level }}
+        </span>
+        •
+        <span class="class-focus">{{ class.focus | focus }}</span>
+      </div>
+      <div class="class-prop">
+        <span class="class-time">
+          {{ class.classDuration | time }}
+        </span>
+      </div>
+    </a>
+  </div>
+</div>

@@ -7,11 +7,22 @@ import {
   WavesModule,
   InputsModule,
   ButtonsModule,
+  IconsModule,
 } from "angular-bootstrap-md";
 import { ModalComponent } from "../components/_index";
-
+import { LevelPipe, TimePipe, FocusPipe } from "../pipes/_index";
+import { HomeComponent } from "./home/home.component";
+import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
 @NgModule({
-  declarations: [ClassesComponent, ClassDetailComponent, ModalComponent],
+  declarations: [
+    ClassesComponent,
+    ClassDetailComponent,
+    ModalComponent,
+    LevelPipe,
+    TimePipe,
+    FocusPipe,
+    HomeComponent,
+  ],
   imports: [
     CommonModule,
     PagesRoutingModule,
@@ -19,6 +30,8 @@ import { ModalComponent } from "../components/_index";
     WavesModule,
     InputsModule,
     ButtonsModule,
+    IconsModule,
+    FontAwesomeModule,
   ],
 })
 export class PagesModule {}

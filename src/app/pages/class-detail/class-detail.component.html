@@ -1,1 +1,57 @@
-<p>class-detail works!</p>
+<div class="container">
+  <div class="class-detail-wrapper" *ngIf="class">
+    <h3 class="class-title">
+      {{ class[0].name | uppercase }}
+    </h3>
+    <div class="class-image">
+      <div class="class-overlay">
+        <div class="class-image__text">
+          <fa-icon class="class-lock" [icon]="faLock"></fa-icon>
+          <h1>UNLOCK THIS CLASS</h1>
+          <h4>Start your free trial today</h4>
+        </div>
+      </div>
+
+      <img src="{{ class[0].image[0].url }}" alt="" />
+    </div>
+    <div class="class-content">
+      <div class="class-content__actions">
+        <button size="lg" type="button" mdbBtn color="dark" mdbWavesEffect>
+          UNLOCK THIS CLASS
+        </button>
+        <app-modal class="class-btn" classId="{{ class[0].id }}"></app-modal>
+      </div>
+      <div class="class-subtitle">
+        <div class="class-subtitle__content">
+          <h2>
+            {{ class[0].name }}
+          </h2>
+          <p>{{ class[0].descriptionText }}</p>
+        </div>
+        <div class="class-subtitle__btn">
+          <a mdbBtn floating="true" size="lg" gradient="blue" mdbWavesEffect>
+            <fa-icon class="class-star" [icon]="faStar"></fa-icon>
+          </a>
+        </div>
+      </div>
+      <div class="class-subcontent">
+        <div class="class-subcontent__column">
+          <span class="class-subcontent__title">Level</span>
+          <span>
+            {{ class[0].level | level }}
+          </span>
+        </div>
+        <div class="class-subcontent__column">
+          <span class="class-subcontent__title">Focus</span>
+          <span>{{ class[0].focus | focus }}</span>
+        </div>
+        <div class="class-subcontent__column">
+          <span class="class-subcontent__title">Duration</span>
+          <span class="class-duration">
+            {{ class[0].classDuration | time }}
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
