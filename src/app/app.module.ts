@@ -6,6 +6,7 @@ import { AppComponent } from "./app.component";
 import { HttpClientModule } from "@angular/common/http";
 import { ClassesService, ClassDetailService } from "./services/_index";
 import { PagesModule } from "./pages/pages.module";
+
 @NgModule({
   declarations: [AppComponent],
   imports: [
