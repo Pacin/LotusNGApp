@@ -1,8 +1,18 @@
 <div class="container">
+  <div class="search-bar">
+    <div class="search-input-wrapper md-form mt-0">
+      <input
+        class="search-input mr-sm-2 form-control"
+        type="text"
+        placeholder="Search"
+        [(ngModel)]="searchText"
+      />
+    </div>
+  </div>
   <div class="class-container">
     <a
       [routerLink]="['/class-detail/', class.id]"
-      *ngFor="let class of classes"
+      *ngFor="let class of classes | filter: searchText"
       class="class"
     >
       <div class="class-image">

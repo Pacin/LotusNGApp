@@ -8,15 +8,12 @@ import { ClassModel } from "../models/class.model";
 })
 export class ClassesService {
   private apiUrl: string;
-  classes: any[] = [];
 
   constructor(private http: HttpClient) {
     this.apiUrl = environment.ApiBaseUrl;
   }
 
   getList() {
-    return this.http
-      .get<ClassModel[]>(this.apiUrl)
-      .subscribe((data) => (this.classes = data));
+    return this.http.get<ClassModel[]>(this.apiUrl);
   }
 }

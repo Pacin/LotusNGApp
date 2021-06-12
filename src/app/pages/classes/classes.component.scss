@@ -7,7 +7,7 @@
   width: calc(25% - 30px);
 
   &-container {
-    margin-top: 100px;
+    margin-top: 50px;
     display: flex;
     flex-flow: wrap;
   }
@@ -57,5 +57,17 @@
   }
   &-time {
     font-size: 14px;
+  }
+}
+
+.search {
+  &-bar {
+    margin-top: 100px;
+  }
+  &-input {
+    &-wrapper {
+      width: 100%;
+    }
+    width: 70%;
   }
 }

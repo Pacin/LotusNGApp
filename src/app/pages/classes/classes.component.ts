@@ -7,13 +7,14 @@ import { ClassesService } from "src/app/services/classes.service";
   styleUrls: ["./classes.component.scss"],
 })
 export class ClassesComponent implements OnInit {
+  searchText: string;
+  classes: any[] = [];
+
   constructor(private classesService: ClassesService) {}
 
-  get classes() {
-    return this.classesService.classes;
-  }
-
   ngOnInit(): void {
-    this.classesService.getList();
+    this.classesService.getList().subscribe((data) => {
+      this.classes = data;
+    });
   }
 }
