@@ -8,7 +8,7 @@ import {
   InputsModule,
   ButtonsModule,
 } from "angular-bootstrap-md";
-import { ModalComponent } from "../components/modal/modal.component";
+import { ModalComponent } from "../components/_index";
 
 @NgModule({
   declarations: [ClassesComponent, ClassDetailComponent, ModalComponent],
