@@ -1,10 +1,25 @@
+@import "../../../assets/styles/mixins";
+
 .class {
   &:not(:last-child) {
     margin-right: 30px;
+
+    @include bp(mobile) {
+      margin-right: 0;
+    }
   }
 
   margin-bottom: 40px;
   width: calc(25% - 30px);
+  @include bp(desktop) {
+    width: calc(33% - 30px);
+  }
+  @include bp(tablet) {
+    width: calc(50% - 30px);
+  }
+  @include bp(mobile) {
+    width: calc(100%);
+  }
 
   &-container {
     margin-top: 50px;
